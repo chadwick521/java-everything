@@ -1,7 +1,5 @@
 # java-everything
 
-##使用代码
-
 gradle项目请引入：
 
 ```
