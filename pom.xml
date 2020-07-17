@@ -12,13 +12,29 @@
     <name>java-everything</name>
     <url>http://maven.apache.org</url>
 
+    <!-- 发布到mvn仓库配置 -->
+    <distributionManagement>
+        <repository>
+            <id>zhaoyh-test-repo-release</id>
+            <name>Release Repository of zhaoyh</name>
+            <url>http://47.93.59.217:8081/repository/zhaoyh-test-repo-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>zhaoyh-test-repo-snap</id>
+            <name>Snapshot Repository of zhaoyh</name>
+            <url>http://47.93.59.217:8081/repository/zhaoyh-test-repo-snap/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <fastjson.version>1.2.72</fastjson.version>
+        <guava.version>29.0-jre</guava.version>
     </properties>
 
     <dependencies>
+        <!-- start common jar -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -32,7 +48,27 @@
             <version>${fastjson.version}</version>
         </dependency>
 
-        <!--  start log -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>1.1.3</version>
+        </dependency>
+        <!-- end common jar -->
+
+        <!-- start log -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -50,14 +86,30 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-        <!--  end log -->
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
-            <scope>provided</scope>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.7</version>
         </dependency>
+        <!-- end log -->
+
+        <!--  start httpcomponents -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.13</version>
+        </dependency>
+        <!--  end httpcomponents -->
+
+        <!-- start spring -->
+        <!-- end spring -->
     </dependencies>
 
     <build>
